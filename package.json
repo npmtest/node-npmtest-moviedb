@@ -1,1 +1,40 @@
-{     "devDependencies": {         "moviedb": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-moviedb",     "homepage": "https://github.com/npmtest/node-npmtest-moviedb",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-moviedb.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### test coverage for  [moviedb (v0.2.8)](https://github.com/impronunciable/moviedb#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-moviedb.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-moviedb) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-moviedb.svg)](https://travis-ci.org/npmtest/node-npmtest-moviedb)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "moviedb": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-moviedb",
+    "keywords": [
+        "coverage",
+        "test",
+        "moviedb"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_moviedb.js",
+    "name": "npmtest-moviedb",
+    "nameAlias": "npmtest_moviedb",
+    "nameOriginal": "npmtest-moviedb",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-moviedb.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
